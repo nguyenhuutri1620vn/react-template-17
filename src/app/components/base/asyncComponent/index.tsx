@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import LoadingComponent from '#root/app/components/base/LoadingComponent';
+import LoadingComponent from 'app/components/base/LoadingComponent';
 
 interface IAsyncComponentState {
   component?: any;

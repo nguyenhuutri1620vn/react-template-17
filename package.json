@@ -43,11 +43,13 @@
   },
   "scripts": {
     "start": "craco start",
-    "start:dev": "env-cmd -f env/.env.dev.js npm run start",
+    "start:dev": "env-cmd -f env/.env.development.js npm run start",
     "start:prod": "env-cmd -f env/.env.production.js npm run start",
     "build": "craco build",
-    "test": "craco test",
-    "eject": "craco eject"
+    "build:dev": "env-cmd -f env/.env.development.js npm run build",
+    "build:prod": "env-cmd -f env/.env.production.js npm run build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -68,11 +70,47 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.16.5",
     "@craco/craco": "^6.4.0",
     "antd-theme-generator": "^1.2.10",
     "craco-alias": "^3.0.1",
     "craco-swc": "^0.1.3",
     "env-cmd": "^10.1.0",
-    "node-sass": "^5.0.0"
+    "node-sass": "^5.0.0",
+    "preconnect-html-webpack-plugin": "^1.0.0",
+    "preload-webpack-plugin": "3.0.0-beta.4"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^src/(.*)": [
+        "<rootDir>/src/$1"
+      ],
+      "^app/(.*)": "<rootDir>/src/app/$1",
+      "^assets/(.*)": "<rootDir>/src/assets/$1",
+      "^config/(.*)": "<rootDir>/src/config/$1",
+      "^styles/(.*)": "<rootDir>/src/styles/$1"
+    },
+    "coverageReporters": [
+      "text"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 50,
+        "lines": 50,
+        "statements": 50
+      }
+    },
+    "collectCoverageFrom": [
+      "<rootDir>/src/**/*.{ts,tsx}",
+      "!<rootDir>/src/index.tsx",
+      "!<rootDir>/src/**/services.ts",
+      "!<rootDir>/src/**/services/*.ts"
+    ]
+  },
+  "babel": {
+    "plugins": [
+      "@babel/plugin-proposal-optional-chaining"
+    ]
   }
 }

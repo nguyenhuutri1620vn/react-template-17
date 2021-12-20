@@ -1,7 +1,7 @@
 import React, { FC, PropsWithChildren, ReactElement } from 'react';
 import { ConfigProvider } from 'antd';
 import { Locale } from 'antd/lib/locale-provider';
-import { LanguageType } from '#root/app/types';
+import { LanguageType } from 'app/types';
 
 import en_US from 'antd/lib/locale/en_US';
 import vi_VN from 'antd/lib/locale/vi_VN';

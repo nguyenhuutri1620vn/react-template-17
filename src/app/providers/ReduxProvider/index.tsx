@@ -1,7 +1,7 @@
 import React, { FC, PropsWithChildren, ReactElement } from 'react';
 import { Provider } from 'react-redux';
 
-import configureStore from '#root/app/stores';
+import configureStore from 'app/stores';
 
 const initialState = {};
 const store = configureStore(initialState);

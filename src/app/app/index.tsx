@@ -4,16 +4,16 @@ import { injectReducer, injectSaga } from 'redux-injectors';
 import { compose } from 'redux';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { UtilInject } from '#root/app/utils';
+import { UtilInject } from 'app/utils';
 
-import { authRoutes } from '#root/app/routers';
+import { authRoutes } from 'app/routers';
 
 import appReducer from './reducer';
 import appSaga from './saga';
 
 import { Switch, Route } from 'react-router-dom';
-// import Switch from '#root/app/router/Switch';
-import * as selectors from '#root/app/app/selectors';
+// import Switch from 'app/router/Switch';
+import * as selectors from 'app/app/selectors';
 
 export interface IAppProps extends Props<HTMLElement> {}
 

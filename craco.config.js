@@ -1,52 +1,41 @@
-const fs = require('fs');
-const path = require('path');
 const CracoAlias = require('craco-alias');
 const CracoSwcPlugin = require('craco-swc');
 
-// const { getLessVars } = require('antd-theme-generator');
-
-// const themeVariables = getLessVars(path.join(__dirname, './src/styles/variables.less'));
-// const defaultVars = getLessVars('./node_modules/antd/lib/style/themes/default.less');
-// const darkVars = {
-//   ...getLessVars('./node_modules/antd/lib/style/themes/dark.less'),
-//   '@primary-color': defaultVars['@primary-color'],
-//   '@picker-basic-cell-active-with-range-color': 'darken(@primary-color, 20%)',
-// };
-// const lightVars = {
-//   ...getLessVars('./node_modules/antd/lib/style/themes/compact.less'),
-//   '@primary-color': defaultVars['@primary-color'],
-// };
-
-// // Create file theme.json
-// fs.writeFileSync('./src/theme/dark.json', JSON.stringify(darkVars));
-// fs.writeFileSync('./src/theme/light.json', JSON.stringify(lightVars));
-// fs.writeFileSync('./src/theme/theme.json', JSON.stringify(themeVariables));
+const PreconnectHtmlWebpackPlugin = require('preconnect-html-webpack-plugin');
+const PreloadWebpackPlugin = require('preload-webpack-plugin');
 
 module.exports = {
-  // eslint: {
-  //   enable: false,
-  // },
+  webpack: {
+    // Modify webpack config
+    plugins: {
+      add: [
+        [new PreconnectHtmlWebpackPlugin(), 'append'],
+        [
+          new PreloadWebpackPlugin({
+            rel: 'preload',
+            include: 'allChunks', // or 'initial', or 'allAssets'
+          }),
+          'append',
+        ],
+      ],
+    },
+    configure: (webpackConfig, { env, paths }) => {
+      const plugins = webpackConfig.plugins;
+
+      // Edit HtmlWebpackPlugin to attach preconnect of PreconnectHtmlWebpackPlugin
+      const HtmlWebpackPluginOptions = plugins[0].options;
+      HtmlWebpackPluginOptions.preconnect = [
+        { url: process.env.REACT_APP_VALIDATE_URL },
+        { url: process.env.REACT_APP_MSS_SERVICES_URL + '/vendor_performance' },
+      ];
+
+      return webpackConfig;
+    },
+  },
   plugins: [
     {
       // Speed up build project
-      plugin: {
-        ...CracoSwcPlugin,
-        // overrideCracoConfig: ({ cracoConfig }) => {
-        //   if (typeof cracoConfig.eslint.enable !== 'undefined') {
-        //     cracoConfig.disableEslint = !cracoConfig.eslint.enable;
-        //   }
-        //   delete cracoConfig.eslint;
-        //   return cracoConfig;
-        // },
-        // overrideWebpackConfig: ({ webpackConfig, cracoConfig }) => {
-        //   if (typeof cracoConfig.disableEslint !== 'undefined' && cracoConfig.disableEslint === true) {
-        //     webpackConfig.plugins = webpackConfig.plugins.filter(
-        //       instance => instance.constructor.name !== 'ESLintWebpackPlugin'
-        //     );
-        //   }
-        //   return webpackConfig;
-        // },
-      },
+      plugin: CracoSwcPlugin,
       options: {
         swcLoaderOptions: {
           jsc: {

@@ -1,5 +1,5 @@
 import { Theme } from 'antd/lib/config-provider/context';
-import { ThemeModeType } from '#root/app/types';
+import { ThemeModeType } from 'app/types';
 
 const theme: { [k in ThemeModeType]?: Theme } = {
   light: {},

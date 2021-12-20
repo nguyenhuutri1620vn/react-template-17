@@ -3,6 +3,7 @@ import Immutable from 'immutable';
 
 declare global {
   var store: EnhancedStore;
+  var env: any;
 }
 
 export type ThemeModeType = 'light' | 'dark';

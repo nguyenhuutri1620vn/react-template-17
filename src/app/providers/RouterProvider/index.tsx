@@ -1,7 +1,7 @@
 import React, { FC, PropsWithChildren, ReactElement } from 'react';
 import { ConnectedRouter } from 'connected-react-router';
 
-import history from '#root/app/stores/history';
+import history from 'app/stores/history';
 
 export interface RouterProviderProps extends PropsWithChildren<any> {}
 

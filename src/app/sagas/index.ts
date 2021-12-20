@@ -1,5 +1,5 @@
 import { all, put, fork } from 'redux-saga/effects';
-import * as nameActList from '#root/app/app/consts';
+import * as nameActList from 'app/app/constant';
 function* initialSaga() {
   yield put({ type: nameActList.INIT_DATA });
 }

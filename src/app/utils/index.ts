@@ -1,5 +1,5 @@
-import Config from '#root/app/config';
-import AppLogger from '#root/app/utils/logger';
+import Config from 'app/config';
+import AppLogger from 'app/utils/logger';
 
 export { default as UtilInject } from './inject';
 export { default as localStorage } from './localStorage';

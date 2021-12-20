@@ -1,18 +1,16 @@
 import Immutable, { fromJS } from 'immutable';
-import * as nameActList from './consts';
-import { ImmutableState } from '#root/app/types';
+import * as nameActList from './constant';
+import { ImmutableState } from 'app/types';
 
 const getInitData = () => {
-  return {
+  return fromJS({
     isLoading: false,
     isMaintaining: false,
     userProfile: null,
-  };
+  }) as ImmutableState;
 };
 
-const initialState = fromJS(getInitData());
-
-const reducer = (state: any = initialState, action: any) => {
+const reducer = (state: ImmutableState = getInitData(), action: any): ImmutableState => {
   switch (action.type) {
     case nameActList.INIT_DATA:
       return state.set('isLoading', true);
@@ -26,7 +24,7 @@ const reducer = (state: any = initialState, action: any) => {
       return state.set('userProfile', action.payload);
 
     case nameActList.CLEAR:
-      return fromJS(getInitData());
+      return getInitData();
     default:
       return state;
   }

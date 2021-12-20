@@ -1,13 +1,11 @@
 import { put, takeLatest, call, all, select } from 'redux-saga/effects';
 // import Utils from 'app/utils';
-// import CommonServices from 'app/services';
 
-// import { ROLES } from '#root/app/app/consts';
-// import { replace } from 'app/router/actions';
+// import { replace } from 'app/containers/router/actions';
 
 import * as selectors from './selectors';
 import * as actionList from './actions';
-import * as nameActList from './consts';
+import * as nameActList from './constant';
 
 function* initData(): any {
   let isMaintaining = yield select(selectors.isMaintainingSelector);

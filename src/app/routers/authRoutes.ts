@@ -1,10 +1,10 @@
 import { RouteProps } from 'react-router';
 
-import asyncComponent from '#root/app/components/base/asyncComponent';
+import asyncComponent from 'app/components/base/asyncComponent';
 
-const AsyncHome = asyncComponent(() => import('#root/app/containers/home'));
-const AsyncPage1 = asyncComponent(() => import('#root/app/containers/page1'));
-const AsyncPage2 = asyncComponent(() => import('#root/app/containers/page2'));
+const AsyncHome = asyncComponent(() => import('app/containers/home'));
+const AsyncPage1 = asyncComponent(() => import('app/containers/page1'));
+const AsyncPage2 = asyncComponent(() => import('app/containers/page2'));
 
 interface ICustomRouter extends RouteProps {
   title?: string;

@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { ConfigProvider, Switch } from 'antd';
-import { ThemeModeType } from '#root/app/types';
+import { ThemeModeType } from 'app/types';
 import { getThemeByType, modeDefault } from './theme';
 
 function SwitchTheme({}) {
