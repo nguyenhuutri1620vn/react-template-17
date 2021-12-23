@@ -9,11 +9,11 @@ import 'antd/dist/antd.variable.min.css';
 import 'styles/index.scss';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <AppProvider>
-      <App />
-    </AppProvider>
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <AppProvider>
+    <App />
+  </AppProvider>,
+  // </React.StrictMode>,
   document.getElementById('root')
 );
 

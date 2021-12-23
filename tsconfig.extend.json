@@ -6,7 +6,8 @@
       "app/*": ["./app/*"],
       "assets/*": ["./assets/*"],
       "config/*": ["./config/*"],
-      "styles/*": ["./styles/*"]
+      "styles/*": ["./styles/*"],
+      "pages/*": ["./app/pages/*"]
     }
   }
 }

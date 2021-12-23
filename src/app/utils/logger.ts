@@ -1,5 +1,3 @@
-import { Object } from 'app/types';
-
 export type ILogType = string | 'none' | 'error' | 'warn' | 'info' | 'debug';
 
 export const LEVELS: {

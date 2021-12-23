@@ -6,6 +6,8 @@ import { IntlProvider } from 'react-intl';
 
 import { translationMessages } from 'src/i18n';
 
+import IntlCapture from './Intl';
+
 import * as languageActions from './actions';
 import * as languageSelectors from './selectors';
 
@@ -19,7 +21,7 @@ const LanguageProvider: FC<LanguageProviderProps> = ({ children }): ReactElement
     if (!localStorage.getLang()) {
       dispatch(languageActions.getLanguage());
     }
-  }, []);
+  }, [dispatch]);
 
   const messages = useMemo<any>(() => {
     const translateData: any = translationMessages;
@@ -28,7 +30,7 @@ const LanguageProvider: FC<LanguageProviderProps> = ({ children }): ReactElement
 
   return (
     <IntlProvider locale={language} messages={messages[language]}>
-      {React.Children.only(children)}
+      <IntlCapture>{React.Children.only(children)}</IntlCapture>
     </IntlProvider>
   );
 };

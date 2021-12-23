@@ -1,5 +1,7 @@
-import React, { ReactElement } from 'react';
+import React, { FC } from 'react';
 
-export default function (): ReactElement {
-  return <div>{'dau xanh'}</div>;
-}
+const LoadingComponent: FC = () => {
+  return <div>{'Loading'}</div>;
+};
+
+export default LoadingComponent;

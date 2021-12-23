@@ -1,1 +1,1 @@
-export const languageSelector = (state: any) => state.languageReducer.get('language');
+export const languageSelector = (state: any) => state.reducerLanguage.get('language');

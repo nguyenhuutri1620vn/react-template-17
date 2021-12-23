@@ -1,10 +1,9 @@
 import { all, put, fork } from 'redux-saga/effects';
 import * as nameActList from 'app/app/constant';
-function* initialSaga() {
-  yield put({ type: nameActList.INIT_DATA });
-}
+
+import sagaApp from 'app/app/saga';
 
 // single entry point to start all Sagas at once
 export default function* rootSaga() {
-  yield all([fork(initialSaga)]);
+  yield all([fork(sagaApp)]);
 }

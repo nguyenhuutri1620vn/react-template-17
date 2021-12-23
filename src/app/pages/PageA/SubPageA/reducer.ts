@@ -12,9 +12,6 @@ const reducer = (state: ImmutableState = getInitData(), action: any): ImmutableS
   switch (action.type) {
     case nameActList.INIT_DATA:
       return state.set('isLoading', true);
-    // App status
-    case nameActList.SET_LOADING:
-      return state.set('isLoading', action.payload);
 
     case nameActList.CLEAR:
       return getInitData();

@@ -1,6 +1,8 @@
 #Library
 
-## Redux saga
+**Integrate**
+
+1. **Redux saga**
 
 - redux
 - react-redux
@@ -13,56 +15,72 @@
 - immutable
 - reselect
 
-## Router
+2. **Redux Router**
 
-- react-router
-- react-router-dom
-- @types/react-router-dom
-- connected-react-router
+- "react-router": "^5.2.1"
+- "react-router-dom": "^5.3.0"
+- "@types/react-router-dom": "^5.3.2"
+- "connected-react-router": "^6.8.0"
 
-# Getting Started with Create React App
+3. **Multi language**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- "shelljs": "^0.8.4"
+- "plop": "^3.0.5"
+- "@babel/node": "^7.16.5"
+- "@babel/preset-env": "^7.16.5"
+- "@babel/preset-react": "^7.16.5"
+- "@types/react-intl": "^2.3.18"
+- "intl": "^1.2.5"
+- "react-intl": "^2.9.0"
+- "babel-plugin-react-intl": "^8.2.25"
 
-## Available Scripts
+4. **Override webpack by craco**
 
-In the project directory, you can run:
+- "@craco/craco": "^6.4.0"
+- "craco-alias": "^3.0.1"
+- "craco-swc": "^0.1.3"
 
-### `yarn start`
+**Configuration**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1.  **Scalable project**
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+> const AsyncHome = asyncComponent(() => import('../components/Home'));
 
-### `yarn test`
+3.  **_Genarate new language_**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+> yarn generate
 
-### `yarn build`
+3.  **_Update all existed language_**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> yarn extract-intl
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4.  **_Override webpack by craco_**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> reference config in craco.config.js
 
-### `yarn eject`
+5.  **_Extra environment with env-cmd_**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+> "start:dev": "env-cmd -f env/.env.development.js npm run start"
+> "build:dev": "env-cmd -f env/.env.development.js npm run build"
+> Prefix env must be REACT_APP\_
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Build & Deploy**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1.  **Build**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+> **_Environment production_**
+> yarn build:prod
 
-## Learn More
+2.  **Deploy**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+> **_Environment dev_**
+> yarn start:dev
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Unit test**
+
+> **_Normal test_**
+> yarn test
+
+> **_Test coverage_**
+> yarn test -- --coverage
+> reference config in package.json
