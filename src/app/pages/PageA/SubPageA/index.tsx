@@ -5,7 +5,7 @@ import { compose } from 'redux';
 
 import { UtilInject } from 'app/utils';
 
-import { Switch, Route } from 'react-router-dom';
+// import { Switch, Route } from 'react-router-dom';
 
 import reducerSubPageA from './reducer';
 import sagaSubPageA from './saga';

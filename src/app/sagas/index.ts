@@ -1,5 +1,4 @@
-import { all, put, fork } from 'redux-saga/effects';
-import * as nameActList from 'app/app/constant';
+import { all, fork } from 'redux-saga/effects';
 
 import sagaApp from 'app/app/saga';
 

@@ -1,4 +1,4 @@
-import { put, takeLatest, call, all, select } from 'redux-saga/effects';
+import { put, takeLatest, select } from 'redux-saga/effects';
 // import Utils from 'app/utils';
 
 // import { replace } from 'app/containers/router/actions';

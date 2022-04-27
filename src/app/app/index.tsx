@@ -1,4 +1,4 @@
-import React, { FC, Props, useEffect, useMemo } from 'react';
+import React, { FC, Props, useEffect } from 'react';
 
 import { injectReducer, injectSaga } from 'redux-injectors';
 import { compose } from 'redux';
@@ -27,7 +27,7 @@ const App: FC<IAppProps> = ({}) => {
     // dispatch(authActions.checkTokenExisted());
   }, [dispatch]);
 
-  const isLoggedIn = useMemo(() => !!authToken, [authToken]);
+  // const isLoggedIn = useMemo(() => !!authToken, [authToken]);
 
   return <div>{isCheckedLogin && !isLoading && <Routers isLoggedIn={!!authToken} />}</div>;
 };
