@@ -14,3 +14,19 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+.site-card-wrapper {
+  padding: 0 30px 0 30px;
+}
+.table-product{
+  border: 1px solid rgb(160, 160, 160);
+}
+.ingredient-list-table {
+  font-size: 17px;
+  /* height: 300px; */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}
